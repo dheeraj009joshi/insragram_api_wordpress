@@ -29,4 +29,4 @@ def user_storied():
     return user_stories
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='52.79.233.90', port=8080)
