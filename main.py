@@ -1,7 +1,8 @@
 from lamadava import Client
 cl = Client(token="CFtr2422gV9MyO0g9tj9KPz2jhJNZmau")
 from flask import Flask, request
-
+user_info_=cl.user_by_username_v1("dheeraj_joshi2006")
+print(user_info_)
 app = Flask(__name__)
 
 @app.route('/user_info', methods=['POST'])
