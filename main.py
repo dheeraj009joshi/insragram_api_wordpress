@@ -5,12 +5,12 @@ from flask import request, abort, current_app ,Flask
 # print(user_info_)
 app = Flask(__name__)
 
-ip_ban_list=['158.247.195.112']
-@app.before_request
-def block_method():
-    ip = request.environ.get('REMOTE_ADDR')
-    if ip in ip_ban_list:
-        abort(403)
+# ip_ban_list=['158.247.195.112']
+# @app.before_request
+# def block_method():
+#     ip = request.environ.get('REMOTE_ADDR')
+#     if ip in ip_ban_list:
+#         abort(403)
 
 @app.route('/user_info', methods=['GET','POST'])
 def user_info():
