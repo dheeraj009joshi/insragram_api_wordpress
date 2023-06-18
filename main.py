@@ -1,8 +1,8 @@
 from lamadava import Client
 cl = Client(token="CFtr2422gV9MyO0g9tj9KPz2jhJNZmau")
 from flask import Flask, request
-user_info_=cl.user_by_username_v1("dheeraj_joshi2006")
-print(user_info_)
+# user_info_=cl.user_by_username_v1("dheeraj_joshi2006")
+# print(user_info_)
 app = Flask(__name__)
 
 @app.route('/user_info', methods=['GET','POST'])
@@ -21,7 +21,7 @@ def user_medisa():
     if request.method=='POST':
         user_id = request.form.get('user_id')
         # Process user_id data
-        user_medias_=cl.user_medias(user_id)
+        user_medias_=cl.user_medias_v1(user_id,amount=50)
         print(user_medias_)
         return user_medias_
     else:
