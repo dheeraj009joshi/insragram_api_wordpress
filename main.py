@@ -1,9 +1,16 @@
 from lamadava import Client
 cl = Client(token="CFtr2422gV9MyO0g9tj9KPz2jhJNZmau")
-from flask import Flask, request
+from flask import request, abort, current_app ,Flask
 # user_info_=cl.user_by_username_v1("dheeraj_joshi2006")
 # print(user_info_)
 app = Flask(__name__)
+
+ip_ban_list=['158.247.195.112']
+@app.before_request
+def block_method():
+    ip = request.environ.get('REMOTE_ADDR')
+    if ip in ip_ban_list:
+        abort(403)
 
 @app.route('/user_info', methods=['GET','POST'])
 def user_info():
