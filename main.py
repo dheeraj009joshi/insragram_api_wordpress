@@ -27,8 +27,9 @@ def user_info():
 def user_medisa():
     if request.method=='POST':
         user_id = request.form.get('user_id')
+        amount = request.form.get('amount')
         # Process user_id data
-        user_medias_=cl.user_medias_v1(user_id,amount=50)
+        user_medias_=cl.user_medias_v1(user_id,amount=amount)
         print(user_medias_)
         return user_medias_
     else:
