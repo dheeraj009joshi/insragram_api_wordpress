@@ -1,5 +1,5 @@
 from lamadava import Client
-cl = Client(token="CFtr2422gV9MyO0g9tj9KPz2jhJNZmau")
+cl = Client(token="BQXIvR1r3gmnU0TPmc845nEfTLeICRNX")
 from flask import request, abort, current_app ,Flask
 # user_info_=cl.user_by_username_v1("dheeraj_joshi2006")
 # print(user_info_)
