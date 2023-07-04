@@ -48,5 +48,21 @@ def user_storied():
     else:
         return "this is fin"
 
+
+@app.route('/user_data', methods=['GET','POST'])
+def user_data():
+    if request.method=='POST':
+        username = request.form.get('username')
+        user_info_=cl.user_by_username_v1(username)
+        # Process user_id data
+        
+        user_id=user_info_['pk']
+        user_medias_=cl.user_medias_v1(user_id,amount=20)
+        user_stories=cl.user_stories_by_username_v1(username)
+        
+        return {"user_info":user_info_,"Medias":user_medias_,"Stories":user_stories} 
+    else:
+        return "this is fin"
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
