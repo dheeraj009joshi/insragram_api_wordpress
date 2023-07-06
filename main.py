@@ -16,6 +16,7 @@ app = Flask(__name__)
 def user_info():
     if request.method=='POST':
         username = request.form.get('username')
+        print(username)
         # Process username data
         user_info_=cl.user_by_username_v1(username)
         return user_info_
@@ -27,6 +28,7 @@ def user_info():
 def user_medisa():
     if request.method=='POST':
         user_id = request.form.get('user_id')
+        print(user_id)
         amount = request.form.get('amount')
         test = request.form.get('test')
         # Process user_id data
@@ -42,6 +44,7 @@ def user_storied():
     if request.method=='POST':
         username = request.form.get('username')
         # Process user_id data
+        print(username)
         user_stories=cl.user_stories_by_username_v1(username)
         
         return user_stories
