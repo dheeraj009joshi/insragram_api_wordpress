@@ -71,8 +71,11 @@ def user_data():
 @app.route('/vca_data', methods=['GET','POST'])
 def vca_data():
     if request.method=='POST':
-        username = request.form.get('username')
+        print(request.json)
+        username = request.json['username']
+        print(username)
         user_info_=cl.user_by_username_v1(username)
+        print(user_info_)
         user_id=user_info_['pk']
         user_medias_=cl.user_medias_v1(user_id,amount=100)
         data=user_info_
@@ -141,8 +144,9 @@ def vca_data():
 }
    
         df = pd.DataFrame(data)
-        
-        return str(df)   
+        json_data = df.to_json(orient='records')
+
+        return json_data
          
     else:
         return "this is fin"
